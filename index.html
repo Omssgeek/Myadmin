@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script>
+    <!--Import Google Icon Font-->
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <!-- font awesome cdn -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js">
+   
+  </script>
+  <script>
+    window.onload = function () {
+    
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        theme: "light2",
+        title:{
+            text: "Daily Visitors"
+        },
+        data: [{        
+            type: "line",
+              indexLabelFontSize: 16,
+            dataPoints: [
+                { y: 450 },
+                { y: 414},
+                { y: 520, indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
+                { y: 460 },
+                { y: 450 },
+                { y: 500 },
+                { y: 480 },
+                { y: 480 },
+                { y: 410 , indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+                { y: 500 },
+                { y: 480 },
+                { y: 510 }
+            ]
+        }]
+    });
+    chart.render();
+    
+    }
+    </script>
+    <title>My Admin</title>
+
+</head>
+<body>
+     <!-- navbar -->
+     <nav class="nav-wrapper blue">
+        <div class="container">
+            <a href="" class="brand-logo">MyAdmin</a>
+            <a href="#" class="sidenav-trigger right" data-target="menu">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">Dashboard</a></li>
+        <li><a href="posts.html">Posts</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="comments.html">Comments</a></li>
+        <li><a href="users.html">Users</a></li>
+            </ul>
+            <ul class="sidenav white" id="menu">
+                <li><div class="user-view">
+                    <div class="background">
+                      <img src="img/back.jpeg">
+                    </div>
+                    <a href="#"><img class="circle" src="img/pro4.webp"></a>
+                    <a href="#"><span class="white-text name">Charlotte Linlin</span></a>
+                    <a href="#"><span class="white-text email">Charlottell@gmail.com</span></a>
+                  </div></li>
+                <li><a href="index.html"><i class="fa-brands fa-unsplash"></i>Dashboard</a></li>
+        <li><a href="posts.html">Posts</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="comments.html">Comments</a></li>
+        <li><a href="users.html">Users</a></li>
+        <hr>
+        <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- cards -->
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col m6 s12 l3">
+                <div class="card center blue white-text">
+                    <div class="card-content">
+                        <i class="fa-solid fa-face-grin fa-2x"></i>
+                        <h6>Monthly Visitors</h6>
+                        <h5>35900</h5>
+                        <div class="progress">
+                            <div class="determinate" style="width: 40%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col m6 s12 l3">
+             <div class="card center blue-text">
+                 <div class="card-content">
+                    <i class="fa-solid fa-pencil fa-2x"></i>
+                    <h6>Blog Posts</h6>
+                        <h5>200</h5>
+                    <div class="progress">
+                        <div class="determinate" style="width: 20%"></div>
+                    </div>
+                 </div>
+             </div>
+         </div>
+         <div class="col m6 s12 l3">
+             <div class="card center blue white-text">
+                 <div class="card-content">
+                    <i class="fa-solid fa-message fa-2x"></i>
+                    <h6>Comments</h6>
+                        <h5>2300</h5>
+                    <div class="progress">
+                        <div class="determinate" style="width: 60%"></div>
+                    </div>
+                 </div>
+             </div>
+         </div>
+         <div class="col m6 s12 l3">
+            <div class="card center blue-text">
+                <div class="card-content">
+                    <i class="fa-solid fa-user-group fa-2x"></i>
+                    <h6>Users</h6>
+                    <h5>410</h5>
+                    <div class="progress">
+                        <div class="determinate" style="width: 10%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section class="blue lighten-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col l8 m6 s12 ">
+                <div class="card">
+                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                </div>
+                
+            </div>
+            <div class="col l4 m6 s12">
+                <ul class="collection with-header">
+                    <li class="collection-item"><h5>Latest Comments</h5></li>
+                    <li class="collection-item avatar">
+                        <img src="img/pro3.jpg" class="circle" alt="">
+                        <span class="title">Yugi</span>
+                        <p class="grey-text">Lorem ipsum dolor sit, amet consectetur adipisicing nobis.</p>
+                        <div style="display: flex; justify-content: left;">
+                            <p class="green-text">Popular</p><p class="red-text">Places</p>
+                        </div>
+                    </li>
+                    <li class="collection-item avatar">
+                        <img src="img/pro1.jpg" class="circle" alt="">
+                        <span class="title">Naruto</span>
+                        <p class="grey-text">Lorem ipsum dolor sit, amet consectetur adipisicing nobis.</p>
+                        <div style="display: flex; justify-content: left;">
+                            <p class="green-text">Popular</p><p class="red-text">Places</p>
+                        </div>
+                    </li>
+                    <li class="collection-item avatar">
+                        <img src="img/pro2.jpg" class="circle" alt="">
+                        <span class="title">Luffy</span>
+                        <p class="grey-text">Lorem ipsum dolor sit, amet consectetur adipisicing nobis.</p>
+                        <div style="display: flex; justify-content: left;">
+                            <p class="green-text">Popular</p><p class="red-text">Places</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section 2 -->
+<section class="grey lighten-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col l8 m6 s12">
+                <div class="card">
+                    <div class="card-content">
+                        <table class="striped">
+                            <h5>Recent Posts</h5>
+                            <thead>
+                              <tr>
+                                  <th>Title</th>
+                                  <th>Category</th>
+                              </tr>
+                            </thead>
+                    
+                            <tbody>
+                              <tr>
+                                <td>Post One</td>
+                                <td>Web Development</td>
+                                <td><a href="" class="btn-small blue">details</a></td>
+                              </tr>
+                              <tr>
+                                <td>Post Two</td>
+                                <td>Graphic Design</td>
+                                <td><a href="" class="btn-small blue">details</a></td>
+                              </tr>
+                              <tr>
+                                <td>Post Three</td>
+                                <td>Web Development</td>
+                                <td><a href="" class="btn-small blue">details</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col l4 m6 s12">
+                <div class="card">
+                    <div class="card-content white-text">
+                      <span class="card-title black-text">Quick Todos</span>
+                      <input type="text" id="text" placeholder="Add Todo">
+                      <label for="text"></label>
+                      <ul class="collection">
+                        <li class="collection-item black-text">Todo One<i class="fa-solid fa-xmark fa-2x blue-text right"></i></li>
+                        <li class="collection-item black-text">Todo Two<i class="fa-solid fa-xmark fa-2x blue-text right"></i></li>
+                      </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+    <li><a href="#modal1" class="btn-floating blue btn modal-trigger waves-effect waves-light"><i class="fa-solid fa-pen"></i></a></li>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4 class="modal-header left">Add Post</h4>
+            <div>
+                <input type="text" placeholder="Title">
+                <label for="text"></label>
+            </div>
+            <div>
+                <select>
+                  <option value="" disabled selected>Category</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+                <label>select Option</label>
+              </div>
+            <textarea name="text_editor"></textarea>
+            <br>
+            <a href="#" class="btn blue right">submit</a>
+            <br><br>
+        </div>
+      </div>
+    <li><a href="#modal2" class="btn-floating blue btn modal-trigger waves-effect waves-light"><i class="fa-solid fa-folder"></i></a></li>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4 class="modal-header left">Add Category</h4>
+            <div>
+                <input type="text" placeholder="Title">
+                <label for="text"></label>
+            </div>
+            <br>
+            <a href="#" class="btn blue right">submit</a>
+            <br><br>
+        </div>
+      </div>
+
+    <li><a href="#modal3" class="btn-floating blue btn modal-trigger waves-effect waves-light"><i class="fa-solid fa-user-group"></i></a></li>
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <h4 class="modal-header left">Add User</h4>
+            <div>
+                <input type="text" placeholder="Name">
+                <label for="text"></label>
+            </div>
+            <br>
+            <div>
+                <input type="text" placeholder="Email">
+                <label for="text"></label>
+            </div>
+            <br>
+            <div>
+                <input type="text" placeholder="Password">
+                <label for="text"></label>
+            </div>
+            <br>
+            <div>
+                <input type="text" placeholder="Confirm Password">
+                <label for="text"></label>
+            </div>
+            <br>
+            <a href="#" class="btn blue right">submit</a>
+            <br><br>
+        </div>
+      </div>
+    </ul>
+  </div>
+
+  <!-- final section -->
+<footer>
+    <div class="footer-copyright blue" style="height: 100px;">
+      <div class="container center">
+          <div class="center white-text" style="padding-top: 25px">
+            <p>MyAdmin copyright © 2022 Oumar</p>
+          </div>
+      </div>
+    </div>
+  </footer>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems,);
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems,);
+  });
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems,);
+  });
+  CKEDITOR.replace( 'text_editor' );
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems,);
+  });
+ </script>
+</body>
+</html>
+
